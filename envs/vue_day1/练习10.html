@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>双向绑定</title>
+</head>
+<body>
+<div id="aaa">
+    <input type="text" v-model="msg">
+    <input type="button" value="添加" @click="add">
+    <ul>
+        <li v-for="(value,index) in notebook" :key="index">
+            <span>{{value}}</span><a href="javascript:;" @click="del(index)">删除</a>
+        </li>
+    </ul>
+    <span>总条数：{{notebook.length}}</span><input type="button" value="del_all" @click="delall">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+         notebook: ['123','asd','dfd'],
+          msg:'',
+      },
+        methods: {
+            add(){
+                let msg = this.msg;
+                if (msg){
+                    this.notebook.push(this.msg);
+                    this.msg="";
+                }
+            },
+            del(index){
+                this.notebook.splice(index,1);
+            },
+            delall(){
+                this.notebook = [];
+            }
+        },
+    })
+</script>
+</body>
+</html>

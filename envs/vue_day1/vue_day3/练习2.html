@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>路由</title>
+</head>
+<body>
+<div id="aa">
+    <span>首页</span>
+    <router-link to="/index">访问首页</router-link>
+    <router-link to="/kecheng">访问课程</router-link>
+    <hr>
+    <router-view></router-view>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-router.3.0.1.js"></script>
+<script>
+    let first = {
+        template:`
+            <div>百知课程管理系统</div>
+        `
+    };
+    let first1 = {
+        template:`
+            <div>课程表</div>
+        `
+    };
+    let myRouter = new VueRouter({
+        routes:[
+            {path:"/index",component:first},
+            {path:"/kecheng",component:first1},
+        ]
+        });
+    new Vue({
+        el:"#aa",
+        data:{
+            router: myRouter,
+        }
+    })
+</script>
+</body>
+</html>

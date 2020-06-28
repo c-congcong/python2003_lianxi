@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>箭头函数</title>
+
+</head>
+<body>
+<script>
+    let student = {
+        username:"小明",
+        app:function () {
+            console.log(this.username);
+        }
+    };
+    // student.app();
+
+    let student2 = {
+        username:"小红",
+        app:function () {
+            setTimeout(function () {
+                console.log(this.username);
+            },1000)
+        }
+    };
+    student2.app();
+    let student3 = {
+        username: "小ming",
+        app: function () {
+            setTimeout(() => {
+                console.log(this.username);
+            },1001)
+        }
+    };
+    student3.app();
+</script>
+</body>
+</html>

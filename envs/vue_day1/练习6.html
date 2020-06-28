@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v-show,v-if</title>
+</head>
+<body>
+<div id="aaa">
+    <h1 v-show="true">hahahaha1</h1>
+    <h1 v-show="values">hahahaha2</h1>
+    <h1 v-if="values">hahahaha3</h1>
+<!--    <h1 v-else="values">hahahaha4</h1>-->
+    <h1 v-else-if="true">hahahaha5</h1>
+    <input type="button" value="点击隐藏" @click="shows">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+         values:true,
+      },
+        methods:{
+            shows(){
+                console.log(111);
+                this.values = !this.values;
+            },
+          },
+
+    })
+</script>
+</body>
+</html>

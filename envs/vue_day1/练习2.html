@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<div id="aaa">
+    {{name}}
+    <br>
+    <span>{{age}}</span>
+    <br>
+    <a href="#">{{name}},{{age}}</a>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+          name:"xiaoming",
+          age:"12",
+      },
+    })
+</script>
+</body>
+</html>

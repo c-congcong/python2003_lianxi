@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>组件</title>
+
+</head>
+<body>
+<div id="aa">
+    <z2></z2>
+    <z2></z2>
+    <z2></z2>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+    let z2 = {
+        template:`
+        <div>
+            <span>{{username}}</span>
+        </div>
+        `,
+        data:function () {
+            return{
+                username:"hahahhaha",
+            }
+
+        }
+    };
+    Vue.component("z2",z2);
+
+    new Vue({
+        el:"#aa",
+        data:{
+            username:"hehehhe",
+        },
+    })
+</script>
+</body>
+</html>

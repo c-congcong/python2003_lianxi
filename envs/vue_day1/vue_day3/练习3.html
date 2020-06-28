@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>路由</title>
+</head>
+<body>
+<div id="aa">
+
+    <router-link to="/index">访问首页</router-link>
+    <router-link to="/user">访问用户</router-link>
+    <router-view></router-view>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-router.3.0.1.js"></script>
+<script>
+    let index = {
+        template:`
+            <div>百知课程管理系统
+                <h2>欢迎访问</h2>
+            </div>
+        `
+    }
+    let user = {
+        template:`
+            <div>
+            用户列表
+            <table border="1">
+                <tr>
+                    <td>name</td>
+                    <td>bir</td>
+                </tr>
+                <tr v-for="user in users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.bir}}</td>
+                </tr>
+            </table>
+            </div>
+        `,
+        data: function () {
+            return{
+                users:[
+                    {name:"heh1",bir:"2020-02-20"},
+                    {name:"heh2",bir:"2020-02-20"},
+                    {name:"heh3",bir:"2020-02-20"},
+                ]
+            }
+        }
+    };
+
+    let myRouter = new VueRouter({
+        routes:[
+            {path:"/index",component:index},
+            {path:"/user",component:user},
+            {path:"/",redirect:"/index"},
+            {path:"/*",redirect:"/index"},
+
+        ]
+        });
+    new Vue({
+        el:"#aa",
+        data:{},
+        router: myRouter,
+    })
+</script>
+</body>
+</html>

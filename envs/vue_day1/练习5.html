@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>绑定事件</title>
+</head>
+<body>
+<div id="aaa">
+    <h1>name:{{name}}</h1>
+    <h1>age:{{age}}</h1>
+    <input type="button" value="-1" v-on:click="change_age">
+    <input type="button" value="+1" v-on:click="add_age">
+    <input type="button" value="-1" @click="change_age">
+    <input type="button" value="+1" @click="add_age">
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+         name:"xiaoming",
+         age:"12",
+      },
+        methods:{
+          change_age:function () {
+            this.age--;
+            if (this.age<0){
+                console.log(111);
+                this.age=0;
+            }
+          },
+            add_age:function () {
+            this.age++;
+            if (this.age>100){
+                console.log(111);
+                this.age="成仙了";
+            }
+          }
+        },
+    })
+</script>
+</body>
+</html>

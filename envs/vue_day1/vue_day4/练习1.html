@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="msg">
+    <button @click="add" type="button">留言</button>
+    <br>
+    <ul>
+        <li v-for="(m,index) in msgs">{{m}}<a href="javascript:;" @click="del(index)">删除</a></li>
+    </ul>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-router.3.0.1.js"></script>
+<script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            msg: "",
+            msgs: []
+        },
+        methods: {
+            add: function () {
+                this.msgs.push(this.msg);
+                localStorage.msgs = JSON.stringify(this.msgs);
+                this.msg = '';
+            },
+            del(index) {
+
+                this.msgs.splice(index, 1);
+                // aaa = this.msgs[index];
+                // console.log(aaa);
+                localStorage.msgs = this.msgs
+            }
+        },
+        created: function () {
+            if (localStorage.msgs) {
+                this.msgs = JSON.parse(localStorage.msgs)
+            }
+        }
+    })
+</script>
+</body>
+</html>

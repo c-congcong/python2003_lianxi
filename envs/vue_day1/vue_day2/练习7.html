@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>组件</title>
+
+</head>
+<body>
+<div id="aa">
+    <z3></z3>
+    <z4></z4>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+    let z3 = {
+        template: `
+        <div>第一个组件</div>
+        `
+    };
+    let z4 = {
+        template: `
+        <div>局部组件</div>
+        `
+    };
+    Vue.component("z3", z3);
+    new Vue({
+        el: "#aa",
+        data: {},
+        components: {
+            "z4": z4,
+        }
+    });
+    new Vue({
+        el: "#aa",
+        data: {}
+    })
+</script>
+</body>
+</html>

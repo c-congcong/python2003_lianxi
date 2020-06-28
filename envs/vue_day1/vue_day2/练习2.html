@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>箭头函数</title>
+
+</head>
+<body>
+<script>
+    let app = (a,b) => console.log(a+b);
+    let app1 = a => console.log(a);
+    let app2 = (a,b) => a+b;
+    let app3 = a => a+2;
+    let app4 = () => console.log(123);
+    app(1,2);
+    app1(1);
+    console.log(app2(1, 2));
+    console.log(app3(1));
+    app4();
+</script>
+</body>
+</html>

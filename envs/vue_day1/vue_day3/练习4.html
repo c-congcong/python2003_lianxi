@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>路由参数</title>
+</head>
+<body>
+<div id="aa">
+
+    <router-view></router-view>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-router.3.0.1.js"></script>
+<script>
+    let index1 = {
+        template:`
+            <div>组件1
+                <router-link to="/index2?id=1&name=hehe">跳转至id=1</router-link>
+            </div>
+        `
+    }
+    let index2 = {
+        template:`
+            <div>组件2 ：从组件1穿过来的id为：{{$route.query.id}}
+                 name={{$route.query.name}}
+
+            </div>
+        `
+    }
+
+    let myRouter = new VueRouter({
+        routes:[
+            {path:"/index1",component:index1},
+            {path:"/index2",component:index2},
+            {path:"/",redirect:"/index1"},
+
+        ]
+        });
+    new Vue({
+        el:"#aa",
+        data:{},
+        router: myRouter,
+    })
+</script>
+</body>
+</html>

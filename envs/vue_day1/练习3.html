@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>text</title>
+</head>
+<body>
+<div id="aaa">
+    <span>{{msg}},游戏真好玩</span><br>
+    <span v-text="msg">游戏真好玩</span><br>
+    <span v-html="a">游戏真好玩</span><br>
+    <span v-text="a">游戏真好玩</span><br>
+
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+          msg:'hahahaha',
+          a:"<a href=\"\">hahahah</a>",
+      },
+    })
+</script>
+</body>
+</html>

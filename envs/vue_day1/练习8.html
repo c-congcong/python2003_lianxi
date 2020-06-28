@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>v-for</title>
+</head>
+<body>
+<div id="aaa">
+   <ul>
+       <li v-for="(zimu,index) in user">{{zimu}}</li>
+   </ul>
+    <ul>
+        <li v-for="(user,index) in user1" :key="user1.age">{{user.name}}--{{user.age}}--{{user.bir}}</li>
+    </ul>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+         user:['a','b','c'],
+          user1:[{name:"xiaoming",age:12,bir:"2020-20-02"},{name:"xiaohong",age:14,bir:"2020-20-03"}],
+      },
+        methods: {
+
+        },
+    })
+</script>
+</body>
+</html>

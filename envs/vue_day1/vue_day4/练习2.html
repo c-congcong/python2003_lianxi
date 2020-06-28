@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>vuex</title>
+</head>
+<body>
+<div id="aa">
+    <first></first>
+    <br>
+    <second></second>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vuex.3.0.1.js"></script>
+<script>
+    let first = {
+        template: `
+            <div>组件1
+                <button @click="add">增加</button>
+            </div>
+        `,
+        methods: {
+            add() {
+                this.$store.commit("num");
+            },
+        }
+    }
+
+    let second = {
+        template: `
+            <div>
+                组件2
+                <span>点击组件1，组件2数字增加：{{$store.state.num}}</span>
+            </div>
+        `
+    }
+
+    let mystore = new Vuex.Store({
+        state: {
+            num: 1,
+            count: 2,
+        },
+        mutations: {
+            num: function (state) {
+                if (state.num < 12) {
+                    state.num += 1;
+                }
+            }
+        }
+    })
+
+    new Vue({
+        el: "#aa",
+        data: {},
+        components: {
+            first: first,
+            second: second,
+        },
+        store: mystore,
+    })
+</script>
+</body>
+</html>

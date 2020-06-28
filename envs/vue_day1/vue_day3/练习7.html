@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>路由参数</title>
+</head>
+<body>
+<div id="aa">
+
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vue-router.3.0.1.js"></script>
+<script>
+    localStorage.name = "hehe"
+    localStorage.age = "12"
+    localStorage.bir = "12-12-12"
+    //获取
+    let name = localStorage.name;
+    let age = localStorage["age"];
+    let bir = localStorage.getItem("bir");
+    console.log(name,age,bir)
+
+    for (let i = 0;i<localStorage.length;i++){
+        console.log("第"+i+"条数据的键："+localStorage.key(i)+"值："+localStorage.getItem(localStorage.key(i)))
+    }
+
+</script>
+</body>
+</html>

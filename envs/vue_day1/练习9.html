@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>双向绑定</title>
+</head>
+<body>
+<div id="aaa">
+    <input type="text" v-model="msg">
+    <p>{{msg}}</p>
+    <input type="button" value="change" @click="changeval">
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+         msg:"",
+      },
+        methods: {
+            changeval(){
+                this.msg = "asd";
+            },
+        },
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>vuex</title>
+</head>
+<body>
+<div id="aa">
+    <first></first>
+    <br>
+    <second></second>
+</div>
+<script src="../js/vue.min.js"></script>
+<script src="../js/vuex.3.0.1.js"></script>
+<script>
+    let first = {
+        template: `
+            <div>组件1
+                <button @click="add">增加</button>
+            </div>
+        `,
+        methods: {
+            add() {
+                this.$store.commit("num",{name:"hehhe",age:"12"});
+            },
+        }
+    }
+
+    let second = {
+        template: `
+            <div>
+
+                <span>第一个组件：{{$store.state.user}}</span>
+            </div>
+        `
+    }
+
+    let mystore = new Vuex.Store({
+        state: {
+            user:{
+                name: "hahah",
+                age: "12",
+            }
+
+        },
+        mutations: {
+            num: function (state,user) {
+
+                    state.user = user;
+
+            }
+        }
+    })
+
+    new Vue({
+        el: "#aa",
+        data: {},
+        components: {
+            first: first,
+            second: second,
+        },
+        store: mystore,
+    })
+</script>
+</body>
+</html>

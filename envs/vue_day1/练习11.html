@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>aa</title>
+</head>
+<body>
+<div id="aaa">
+    <p @click="jian">num:{{num}}</p>
+    <p>shi：{{ parseInt(num / 10) }}</p>
+    <p>ge：{{ num % 10 }}</p>
+    shi：<input type="number" v-model="shi" max="9" min="0">
+    ge：<input type="number" v-model="ge" max="9" min="0">
+    num：<b>{{ shi*10 + +ge }}</b>
+    num：<b>{{ result }}</b>
+</div>
+<script src="js/vue.min.js"></script>
+<script>
+    new Vue({
+      el:'#aaa',
+      data:{
+          num: 99,
+          shi: "",
+          ge: "",
+          // result: 0,
+      },
+        methods: {
+           jian() {
+                this.num -= 5;
+            }
+        },
+        computed: {
+            result() {
+                return this.shi * 10 + +this.ge;
+            }
+        },
+    })
+</script>
+</body>
+</html>

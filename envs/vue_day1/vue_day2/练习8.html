@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>组件</title>
+
+</head>
+<body>
+<style>
+    .red {
+        color: red;
+    }
+
+    .blue {
+        color: blue;
+    }
+</style>
+<div id="aa">
+    <z5 color="red"></z5>
+    <z5 color="blue"></z5>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+    let z5 = {
+        template: `
+        <div :class="color">
+            第一个组件
+        </div>
+        `,
+        props: ['color'],
+        created: function () {
+            console.log(this.color);
+        }
+    };
+
+    new Vue({
+        el: "#aa",
+        data: {},
+        components: {
+            z5: z5,
+        }
+    })
+</script>
+</body>
+</html>
